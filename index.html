@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>J_ust Soft</title>
+    <style type="text/css">
+        body{
+            background-image: linear-gradient(to bottom, #1E0D3F , pink);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            /*overflow:hidden;*/
+            margin: 0px;
+            padding: 0px;
+        }
+        .flo{
+            margin:5px;
+            position: absolute;
+            animation: drop 1s forwards;
+            opacity: 0; transition: all 1s;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes drop{
+            from{
+                margin-top: 0;
+                opacity: 0;
+            }
+            50%{
+                color: gray;
+                font-size: 13px;
+            }
+            to{
+                margin-top: 20px;
+                opacity: 1;
+                color: lightgrey;
+                font-size: 10px;
+            }
+        }
+        #box{
+        	position: relative;
+        	height: 820px;
+        }
+        #content{
+            position: absolute;
+            left: 700px;
+            width: 700px;
+            top: 70px;
+        }
+        #title{
+        	font-weight: bold;
+        	font-size: 35px;
+        	position: absolute;
+            text-align: center;
+            color: lightgray;
+            top:50px;
+            left: 240px;
+            z-index: 1;
+        }
+        #love{
+        	position: absolute;
+        	top: 80px;
+        	left: 60px;
+        	width: 450px;
+        	margin: 75px;
+        }
+        #play{
+        	position: absolute;
+        	width: 95px;
+        	top: 650px;
+        	left: 300px;
+        }
+        
+
+    </style>
+</head>
+<body>
+	<div id="box">
+    <div id="title"></div>
+    <div id="content"></div>
+    <audio id="soft">
+    	<source src="soft.mp3" type="audio/mpeg">
+    </audio>
+    <img id="love" src="ve.jpg">
+    <img id="play" src="play.png">
+    <img id="flower" src="flower.gif">
+    </div>
+
+    <script type="text/javascript">
+        var text= '오늘 밤도 그대 생각에 일찍 잠들긴 글렀네요#너무 예쁜 그대 미소가 내 머리 속에서 떠나지를 않네요#하루종일 그대 곁에 머무르고 싶은 거죠#달콤한 그대의 키스도 좋아요#머리부터 발끝까지 같은 향이 나길 원해요#내곁엔 그대 하나면 충분해요#부드러운 목소리로 나를 보며말해줘요#많이 보고싶었다고 날 기다려왔다고#부드러운 눈빛으로 나도 그댈 바라보며#빈틈없이 안아줄거에요#하루종일 그댈 안고 사랑 노래 부를래요#달콤한 그대 향기도 좋아요#그대를 위한팔베게도 밤새도록 할 수 있어요#내겐 보고 또 봐도 너무 예쁜 그대죠#부드러운 목소리로 나를 보며 말해줘요#많이 보고싶었다고 날 기다려왔다고#부드러운 눈빛으로 나도 그댈 바라보며#빈틈없이 안아줄거에요#그대의 작은 눈짓도 내 마음에 담고 싶어요#항상 그대를 바라는 날 혼자 놔둘건가요#그대와 밤새 사랑을 나누고 함께 아침을 맞고싶죠#그렇게 우리 둘 하나가 되길 원해요#부드러운 목소리로 나를 보며 말해줘요#많이 보고싶었다고 날 기다려왔다고#부드러운 눈빛으로 나도 그댈 바라보며#빈틈없이 안아줄거에요#그대 생각을 안은채 이 밤을 보내요';
+        var k=text.split('#');
+        
+        for(var i = 0; i < k.length; i++){
+            var c = document.createElement('div')
+            c.innerHTML=k[i];
+            c.className="flo";
+            c.style.top= i * 25 + 'px'
+            c.style.animationDelay= i * 2+'s'
+            document.querySelector('#content').appendChild(c)
+            var flos = document.querySelectorAll('.flo')
+        }
+        
+        var title = '부드러운 그_냥'
+        for(var i = 0; i < title.length; i++){
+            var t = document.querySelector('#title')
+            var s = document.createElement('span')
+            s.innerHTML = title[i]
+            s.style.animationDelay= i * 0.2+'s'
+            t.appendChild(s)
+        }
+
+        var toggle = "off";
+			play.onclick=function(){
+				
+				if (toggle == "off") {
+					soft.play();
+					toggle="on";
+                    play.setAttribute("src","play.png");
+                }else{
+					soft.pause();
+					toggle="off";
+                    play.setAttribute("src","stop.png");
+                }
+        
+		}
+        var toggle = "off";
+            love.onclick=function(){
+                if (toggle == "off") {
+                    
+                    toggle="on";
+                    love.setAttribute("src","ve.jpg");
+                }else{
+                    
+                    toggle="off";
+                    love.setAttribute("src","lo.jpg");
+                }
+            }
+
+    </script>
+
+
+</body>
+</html>
